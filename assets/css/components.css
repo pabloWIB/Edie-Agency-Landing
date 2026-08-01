@@ -1,0 +1,211 @@
+/* ==========================================================================
+   components.css — buttons, cards, work items, mobile menu, utilities
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Buttons
+   Every interactive element declares default, hover, focus and active.
+   Minimum hit area is 44x44px.
+   -------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-strong);
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.button:hover {
+  background-color: #155a82;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button__icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform var(--transition);
+}
+
+.button:hover .button__icon {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Service card
+   -------------------------------------------------------------------------- */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.service-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-card);
+}
+
+.service-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+}
+
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+}
+
+.service-card__icon img {
+  width: 100%;
+}
+
+.service-card__icon--design {
+  background-color: var(--color-accent);
+}
+
+.service-card__icon--front {
+  background-color: var(--color-green);
+}
+
+.service-card__icon--back {
+  background-color: var(--color-red);
+}
+
+/* --------------------------------------------------------------------------
+   3. Work item
+   -------------------------------------------------------------------------- */
+.work__column {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.work-item img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.work-item__body {
+  margin-top: var(--space-3);
+}
+
+.work-item__category {
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. Mobile menu
+   -------------------------------------------------------------------------- */
+.menu-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.menu-toggle svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+/* Only one of the two glyphs is ever shown. */
+.menu-toggle__close,
+.menu-toggle[aria-expanded="true"] .menu-toggle__open {
+  display: none;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__close {
+  display: block;
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface-alt);
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.mobile-menu[data-open="true"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  display: block;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-5);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+}
+
+/* Set on <body> while the overlay is open. */
+.is-menu-open {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  /* The overlay can never be left open when the desktop nav takes over. */
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Social links
+   -------------------------------------------------------------------------- */
+.social-link {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition);
+}
+
+.social-link:hover {
+  background-color: rgba(242, 242, 242, 0.12);
+}
+
+.social-link img {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edie.wib.digital/sitemap.xml

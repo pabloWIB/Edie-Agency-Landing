@@ -1,0 +1,21 @@
+# Static site, no build step. This list covers what local tooling leaves behind.
+
+# Dependencies (only present if a local server such as `npx serve` is installed)
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
